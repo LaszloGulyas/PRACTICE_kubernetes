@@ -1,0 +1,28 @@
+# k8s replica-set template
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+  name: myapp-replicaset
+  namespace: dev
+  labels:
+    app: myapp
+    type: front-end
+
+spec:
+  template:
+    # pod definition
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+  replicas: 2
+  # replica-set can manage pods that were not included in its own template
+  selector:
+    matchLabels:
+      type: front-end
