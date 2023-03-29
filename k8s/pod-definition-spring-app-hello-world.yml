@@ -1,0 +1,18 @@
+# k8s pod definition: spring-app-hello-world
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: spring-app-hello-world-pod
+  namespace: dev
+  labels:
+    app: spring-app-hello-world
+    type: back-end
+
+spec:
+  containers:
+    - name: spring-app-hello-world
+      image: spring-app-hello-world:latest
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 8080
