@@ -16,3 +16,6 @@ spec:
       imagePullPolicy: Never
       ports:
         - containerPort: 8080
+      envFrom:
+        - configMapRef:
+            name: spring-app-hello-world-config
