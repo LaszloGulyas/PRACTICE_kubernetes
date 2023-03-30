@@ -19,3 +19,5 @@ spec:
       envFrom:
         - configMapRef:
             name: spring-app-hello-world-config
+        - secretRef:
+            name: spring-app-hello-world-secret
